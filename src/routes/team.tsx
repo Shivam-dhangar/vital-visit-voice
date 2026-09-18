@@ -51,7 +51,7 @@ function TeamPage() {
                 <MapPin className="size-4 text-primary" /> Bengaluru · remote-friendly
               </span>
               <span className="inline-flex items-center gap-2">
-                <Mail className="size-4 text-primary" /> hello@recallpatient.io
+                <Mail className="size-4 text-primary" /> hello@recallpatient.com
               </span>
             </div>
           </div>

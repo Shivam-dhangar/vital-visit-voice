@@ -97,7 +97,7 @@ function LoginPage() {
                 id="email"
                 type="email"
                 autoComplete="email"
-                placeholder="demo@recallpatient.io"
+                placeholder="demo@recallpatient.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required

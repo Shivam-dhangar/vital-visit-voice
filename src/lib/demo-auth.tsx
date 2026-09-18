@@ -8,7 +8,7 @@ export type DemoUser = {
 };
 
 export const DEMO_CREDENTIALS = {
-  email: "demo@recallpatient.io",
+  email: "demo@recallpatient.com",
   password: "demo1234",
 };
 

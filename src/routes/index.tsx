@@ -16,6 +16,7 @@ import { SiteHeader } from "@/components/site-header";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { faqs, plans, testimonials } from "@/lib/demo-data";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -235,21 +236,104 @@ function Home() {
                   </li>
                 ))}
               </ul>
+              <Button asChild variant="outline" className="mt-6">
+                <Link to="/features">
+                  See every feature <ArrowRight className="ml-1 size-4" />
+                </Link>
+              </Button>
             </div>
             <Card className="rounded-3xl border-border/80 bg-ink text-ink-foreground shadow-lift">
               <CardContent className="p-8">
                 <p className="font-display text-2xl leading-snug">
-                  “We stopped calling patients to remind them. Recall messages do it, and our
-                  cleaning appointments are booked three weeks out now.”
+                  “{testimonials[0]!.quote}”
                 </p>
                 <p className="mt-6 text-sm text-ink-foreground/70">
-                  Dr. Praveen K. — 2-chair dental practice, Kochi
+                  {testimonials[0]!.name} — {testimonials[0]!.role}
                 </p>
                 <Button asChild variant="secondary" className="mt-8">
                   <Link to="/login">Explore the demo portal</Link>
                 </Button>
               </CardContent>
             </Card>
+          </div>
+        </section>
+
+        <section className="border-y border-border bg-muted/60">
+          <div className="mx-auto w-full max-w-6xl px-5 py-20">
+            <h2 className="text-3xl sm:text-4xl">Trusted by clinics that hate no-shows as much as we do</h2>
+            <div className="mt-10 grid gap-5 sm:grid-cols-3">
+              {testimonials.map((t) => (
+                <Card key={t.name} className="rounded-2xl border-border/80 shadow-soft">
+                  <CardContent className="p-6">
+                    <p className="text-sm leading-relaxed text-foreground">“{t.quote}”</p>
+                    <p className="mt-4 text-xs font-medium">{t.name}</p>
+                    <p className="text-xs text-muted-foreground">{t.role}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="mx-auto w-full max-w-6xl px-5 py-20">
+          <div className="flex flex-wrap items-end justify-between gap-4">
+            <div>
+              <h2 className="text-3xl sm:text-4xl">Plans for one chair or twenty</h2>
+              <p className="mt-3 max-w-xl text-muted-foreground">
+                Every plan includes reminders, recovery sequences and the patient history
+                dashboard — no per-patient fees.
+              </p>
+            </div>
+            <Button asChild variant="outline">
+              <Link to="/pricing">
+                Compare all plans <ArrowRight className="ml-1 size-4" />
+              </Link>
+            </Button>
+          </div>
+          <div className="mt-10 grid gap-5 lg:grid-cols-3">
+            {plans.map((plan) => (
+              <Card
+                key={plan.id}
+                className={`rounded-2xl border-border/80 shadow-soft ${
+                  plan.highlighted ? "border-primary shadow-lift" : ""
+                }`}
+              >
+                <CardContent className="p-6">
+                  {plan.highlighted && (
+                    <Badge className="mb-3 rounded-full bg-primary text-primary-foreground">
+                      Most popular
+                    </Badge>
+                  )}
+                  <h3 className="text-lg">{plan.name}</h3>
+                  <div className="mt-2 flex items-baseline gap-1">
+                    <span className="font-display text-3xl">{plan.price}</span>
+                    <span className="text-sm text-muted-foreground">{plan.period}</span>
+                  </div>
+                  <p className="mt-3 text-sm text-muted-foreground">{plan.tagline}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </section>
+
+        <section className="border-t border-border bg-muted/60">
+          <div className="mx-auto w-full max-w-4xl px-5 py-20">
+            <div className="flex flex-wrap items-end justify-between gap-4">
+              <h2 className="text-3xl sm:text-4xl">Questions clinics ask us first</h2>
+              <Button asChild variant="outline">
+                <Link to="/faq">
+                  Full FAQ <ArrowRight className="ml-1 size-4" />
+                </Link>
+              </Button>
+            </div>
+            <div className="mt-8 grid gap-4 sm:grid-cols-2">
+              {faqs.slice(0, 4).map((f) => (
+                <div key={f.question} className="rounded-2xl border border-border bg-card p-5 shadow-soft">
+                  <p className="text-sm font-medium">{f.question}</p>
+                  <p className="mt-2 text-sm text-muted-foreground">{f.answer}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
       </main>

@@ -13,9 +13,21 @@ export function SiteFooter() {
         <div className="text-sm">
           <p className="font-medium">Product</p>
           <ul className="mt-3 space-y-2 text-ink-foreground/70">
-            <li>Auto-scheduling</li>
-            <li>Missed-appointment recovery</li>
-            <li>Patient history dashboard</li>
+            <li>
+              <Link to="/features" className="hover:text-ink-foreground">
+                Features
+              </Link>
+            </li>
+            <li>
+              <Link to="/pricing" className="hover:text-ink-foreground">
+                Pricing
+              </Link>
+            </li>
+            <li>
+              <Link to="/faq" className="hover:text-ink-foreground">
+                FAQ
+              </Link>
+            </li>
           </ul>
         </div>
         <div className="text-sm">
@@ -27,6 +39,11 @@ export function SiteFooter() {
               </Link>
             </li>
             <li>
+              <Link to="/contact" className="hover:text-ink-foreground">
+                Contact
+              </Link>
+            </li>
+            <li>
               <Link to="/login" className="hover:text-ink-foreground">
                 Demo login
               </Link>
@@ -34,11 +51,23 @@ export function SiteFooter() {
           </ul>
         </div>
         <div className="text-sm">
-          <p className="font-medium">Demo access</p>
-          <p className="mt-3 text-ink-foreground/70">
-            demo@recallpatient.io
+          <p className="font-medium">Legal</p>
+          <ul className="mt-3 space-y-2 text-ink-foreground/70">
+            <li>
+              <Link to="/privacy" className="hover:text-ink-foreground">
+                Privacy Policy
+              </Link>
+            </li>
+            <li>
+              <Link to="/terms" className="hover:text-ink-foreground">
+                Terms of Service
+              </Link>
+            </li>
+          </ul>
+          <p className="mt-4 text-xs text-ink-foreground/60">
+            Demo access
             <br />
-            demo1234
+            demo@recallpatient.com / demo1234
           </p>
         </div>
       </div>

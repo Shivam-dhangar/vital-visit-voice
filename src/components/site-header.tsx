@@ -7,7 +7,11 @@ import { useDemoAuth } from "@/lib/demo-auth";
 
 const nav = [
   { to: "/", label: "Home" },
+  { to: "/features", label: "Features" },
+  { to: "/pricing", label: "Pricing" },
+  { to: "/faq", label: "FAQ" },
   { to: "/team", label: "Team" },
+  { to: "/contact", label: "Contact" },
 ] as const;
 
 export function SiteHeader() {
@@ -24,12 +28,12 @@ export function SiteHeader() {
           <span className="font-display text-lg">Recallpatient</span>
         </Link>
 
-        <nav className="hidden items-center gap-1 md:flex">
+        <nav className="hidden items-center gap-0.5 lg:flex">
           {nav.map((item) => (
             <Link
               key={item.to}
               to={item.to}
-              className="rounded-lg px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
+              className="rounded-lg px-2.5 py-2 text-sm text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
               activeProps={{ className: "bg-secondary text-foreground" }}
               activeOptions={{ exact: item.to === "/" }}
             >
@@ -51,14 +55,14 @@ export function SiteHeader() {
           type="button"
           aria-label="Toggle navigation"
           onClick={() => setOpen((v) => !v)}
-          className="inline-flex size-9 items-center justify-center rounded-lg border border-border md:hidden"
+          className="inline-flex size-9 items-center justify-center rounded-lg border border-border lg:hidden"
         >
           <Menu className="size-4" />
         </button>
       </div>
 
       {open && (
-        <div className="border-t border-border bg-background px-5 py-3 md:hidden">
+        <div className="border-t border-border bg-background px-5 py-3 lg:hidden">
           <div className="flex flex-col gap-1">
             {nav.map((item) => (
               <Link
