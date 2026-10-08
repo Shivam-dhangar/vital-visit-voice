@@ -33,7 +33,7 @@ export const Route = createFileRoute("/contact")({
 
 const channels = [
   { icon: Mail, label: "Email", value: "hello@recallpatient.com" },
-  { icon: MapPin, label: "Office", value: "Bengaluru, India · remote-friendly" },
+  { icon: MapPin, label: "Office", value: "jariyari maihar satna, madhya pradesh 485774 IN" },
 ];
 
 function ContactPage() {
